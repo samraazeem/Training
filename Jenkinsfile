@@ -4,7 +4,7 @@ pipeline{ environment {
   }  
    agent any 
    tools{
-     maven 'maven3.6'
+     maven 'MAVEN'
 }
     stages {
         stage("Code Checkout") {

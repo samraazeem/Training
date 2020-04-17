@@ -1,4 +1,5 @@
-pipeline{ environment {
+pipeline{ 
+    environment {
     registry = "samraazeem/maven"
     registryCredential = 'docker'
   }  
@@ -23,21 +24,54 @@ pipeline{ environment {
             } 
         }
         stage('Building image') {
-            steps{
-                bat 'docker build -t samraazeem/maven:%BUILD_NUMBER% .'
-            }
-        }
-        stage('Deploy image') {
-            steps{
-                bat 'docker push samraazeem/maven:%BUILD_NUMBER%'
-            }
-        }   
-        stage('Run Latest container'){
-            steps{
-                bat 'docker rm -f samra'
-                bat 'docker run -d --name samra -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
-            }
-        }
+
+ 
+steps{
+
+ 
+script {
+
+ 
+dockerImage= docker.build registry + ":$BUILD_NUMBER"
+
+ 
+}
+
+ 
+}
+
+ 
+}
+
+ 
+ 
+
+ 
+stage('Deploy Image') {
+
+ 
+steps{
+
+ 
+script {
+
+ 
+docker.withRegistry( '', registryCredential ) {
+
+ 
+dockerImage.push()
+
+ 
+}
+
+ 
+}
+
+ 
+}
+
+ 
+}
     }
 
 }

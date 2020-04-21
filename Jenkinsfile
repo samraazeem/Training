@@ -42,7 +42,7 @@ pipeline{
         stage('Kill older container & Run Latest container'){
             steps{
                 bat 'docker rm -f samra-mvn'
-                bat 'docker run -d --name samra-mvn -p 80:8080 narendra9582/narendra:%BUILD_NUMBER%'
+                bat 'docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
             }
         }
     }

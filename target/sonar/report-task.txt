@@ -1,6 +1,0 @@
-projectKey=samra.azeem:MavenProject
-serverUrl=http://localhost:9000
-serverVersion=8.2.0.32929
-dashboardUrl=http://localhost:9000/dashboard?id=samra.azeem%3AMavenProject
-ceTaskId=AXERV2U1_m0qmXS5UzKI
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AXERV2U1_m0qmXS5UzKI

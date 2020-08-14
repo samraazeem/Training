@@ -31,7 +31,7 @@ pipeline{
             }
         }
         stage('Deploy Image') {
-            steps{
+             steps{
                 script {
                     docker.withRegistry( '', registryCredential ) {
                     dockerImage.push()
@@ -44,6 +44,6 @@ pipeline{
                 bat 'docker rm -f samra-mvn'
                 bat 'docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
             }
-        }
+        } ***/
     }
 }

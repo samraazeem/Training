@@ -25,7 +25,7 @@ pipeline{
         }
         stage('Building image') { 
             steps{
-                sh 'sudo docker build -t samraazeem/maven":$BUILD_NUMBER" .'
+                sh 'docker build -t samraazeem/maven":$BUILD_NUMBER" .'
                 /***script {
                     dockerImage= docker.build registry + ":$BUILD_NUMBER"
                 }***/   
@@ -42,8 +42,8 @@ pipeline{
         }
         stage('Kill older container & Run Latest container'){
             steps{
-                sh 'sudo docker rm -f samra-mvn'
-                sh 'sudo docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
+                sh 'docker rm -f samra-mvn'
+                sh 'docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
             }
         } 
     }

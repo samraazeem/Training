@@ -31,13 +31,13 @@ skipDefaultCheckout(true)
         stage('Building image') { 
             steps{
                 
-                sh 'docker build -t "samraazeem/maven":$BUILD_NUMBER"" .'
+                /***sh 'docker build -t "samraazeem/maven":$BUILD_NUMBER"" .'
                 script {
                     dockerImage= 'samraazeem/maven":$BUILD_NUMBER"'
-                }
-                /***script {
-                    dockerImage= docker.build registry + ":$BUILD_NUMBER"
                 }***/
+                script {
+                    dockerImage= docker.build registry + ":$BUILD_NUMBER"
+                }
             }
         }
         stage('Deploy Image') {

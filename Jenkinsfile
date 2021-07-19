@@ -15,7 +15,7 @@ pipeline{
         }
         stage('Build Stage') {
             steps{
-                bat 'mvn install'  
+                sh 'mvn install'  
             }
         }
         stage('Testing Stage'){
@@ -41,8 +41,8 @@ pipeline{
         }
         stage('Kill older container & Run Latest container'){
             steps{
-                bat 'docker rm -f samra-mvn'
-                bat 'docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
+                sh 'docker rm -f samra-mvn'
+                sh 'docker run -d --name samra-mvn -p 80:8080 samraazeem/maven:%BUILD_NUMBER%'
             }
         } 
     }

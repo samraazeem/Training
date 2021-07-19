@@ -32,7 +32,9 @@ skipDefaultCheckout(true)
             steps{
                 
                 sh 'docker build -t "samraazeem/maven":$BUILD_NUMBER"" .'
-                dockerImage= 'samraazeem/maven":$BUILD_NUMBER"'
+                script {
+                    dockerImage= 'samraazeem/maven":$BUILD_NUMBER"'
+                }
                 /***script {
                     dockerImage= docker.build registry + ":$BUILD_NUMBER"
                 }***/

@@ -2,6 +2,7 @@ pipeline{
     environment {
     registry = "samraazeem/maven"
     registryCredential = 'docker'
+    dockerImage= ''
   }  
    agent any 
    tools{

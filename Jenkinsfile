@@ -7,6 +7,10 @@ pipeline{
    tools{
      maven 'MAVEN'
 }
+    
+options {
+skipDefaultCheckout(true)
+}
     stages {
         stage("Code Checkout") {
             steps {

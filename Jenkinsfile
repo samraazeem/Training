@@ -28,6 +28,13 @@ skipDefaultCheckout(true)
                echo 'Test cases passed successfully!!'
             } 
         }
+        stage('SonarQube Analysis'){
+			steps{
+				withSonarQubeEnv('Sonar_Qube'){
+					sh 'mvn sonar:sonar -Dsonar.projectKey=test -Dsonar.host.url=http://http://52.249.217.108:9000 -Dsonar.login=b9b1f74acbea553a843f0af694b9aaeb78daa021'
+				}
+			}
+		}
         stage('Building image') { 
             steps{
                 

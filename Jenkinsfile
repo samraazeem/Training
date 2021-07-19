@@ -26,7 +26,7 @@ pipeline{
         stage('Building image') { 
             steps{
                 
-                sh 'docher build -t "samraazeem/maven":$BUILD_NUMBER"" .'
+                sh 'docker build -t "samraazeem/maven":$BUILD_NUMBER"" .'
                 /***script {
                     dockerImage= docker.build registry + ":$BUILD_NUMBER"
                 }***/

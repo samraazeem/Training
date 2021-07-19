@@ -10,7 +10,7 @@ pipeline{
     stages {
         stage("Code Checkout") {
             steps {
-                git url: 'https://github.com/samraazeem/Training.git'
+                git url: 'https://github.com/samraazeem/docker-jenkins-integration.git'
             }
         }
         stage('Build Stage') {
